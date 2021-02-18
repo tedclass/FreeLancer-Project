@@ -1,0 +1,51 @@
+﻿@model FreeLancers4.Models.History
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>History</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Proffesion" class="control-label"></label>
+                <input asp-for="Proffesion" class="form-control" />
+                <span asp-validation-for="Proffesion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Project" class="control-label"></label>
+                <input asp-for="Project" class="form-control" />
+                <span asp-validation-for="Project" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="completeDate" class="control-label"></label>
+                <input asp-for="completeDate" class="form-control" />
+                <span asp-validation-for="completeDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
