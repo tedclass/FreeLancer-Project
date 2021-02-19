@@ -2,59 +2,45 @@
 
 @{
     ViewData["Title"] = "Index";
+    ViewData["name"] = "history";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="client-work-card-container">
+    @foreach (var item in Model)
+    {
+        <div class="client-work-card-div">
+            <div class="client-work-card-section-1">
+                <div class="project-name">@Html.DisplayFor(modelItem => item.UserName)</div>
+                <div class="project-name-subheading">@Html.DisplayFor(modelItem => item.Proffesion)</div>
+                <div class="description">
+                    @Html.DisplayFor(modelItem => item.Project)
+                </div>
+            </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Proffesion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Project)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.completeDate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Proffesion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Project)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.completeDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            <div class="client-work-card-section-2">
+                <div class="rating">Rating: @Html.DisplayFor(modelItem => item.Rating)</div>
+                <div class="complete-date">Complete Date: @Html.DisplayFor(modelItem => item.completeDate)</div>
+                <div class="client-work-card-section-2-bottom">
+
+                    <a asp-action="Edit" asp-route-id="@item.ID">
+                        <div class="client-work-card-section-2-bottom-button">
+                            <button>Edit</button>
+                        </div>
+                    </a>
+                    <a  asp-action="Details" asp-route-id="@item.ID">
+                        <div class="client-work-card-section-2-bottom-button">
+                            <button>Details</button>
+                        </div>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.ID">
+                        <div class="client-work-card-section-2-bottom-button">
+                            <button>Delete</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

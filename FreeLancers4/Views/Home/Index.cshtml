@@ -1,8 +1,27 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using FreeLancers4.Areas.Identity.Data
+
+@inject SignInManager<FreeLancers4User> SignInManager
+@inject UserManager<FreeLancers4User> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
+    ViewData["name"] = "home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="body-container">
+    <div class="body-div">
+        <div class="welcome">Welcome</div>
+        <div class="welcome-message">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit error earum quam cumque temporibus architecto nihil consectetur adipisci quo accusamus iusto commodi voluptatibus, minus vitae pariatur sit. Nobis, magnam provident?</div>
+        <div class="signin-button">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a asp-area="" asp-controller="Projects" asp-action="Index"><button>Back to account</button></a>
+            }
+            else
+            {
+                <a asp-area="Identity" asp-page="/Account/Login"><button>Sign In</button></a>
+            }
+        </div>
+    </div>
 </div>

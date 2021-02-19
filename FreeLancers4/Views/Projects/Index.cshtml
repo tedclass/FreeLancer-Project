@@ -2,93 +2,82 @@
 
 @{
     ViewData["Title"] = "Index";
+    ViewData["name"] = "listings";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Home</h1>
-<a asp-controller="Histories" asp-action="Index">Work History</a>
-
-<p>
-    <br /><a asp-action="Create">Create New</a><br />
-</p>
-
 <!--search bar boi -->
-<form>
-    <p>Enter the project name you want to search by : <input type="text" name="SearchString" /></p>
-    <p>Choose by skill type: @Html.DropDownList("Skills", "All")</p>
-    <p> Type the date youd like to search by: <input type ="date" name=" datesearch"</p>
-    <br />
-    <input type ="Submit" value="Search Project" /><br /><br /><br />
-</form>
+
+<div class="inputs-container">
+        <div class="inputs-title">All Listings</div>
+        <div class="inputs-subtitle">Search projects</div>
+
+        <form id="account" method="post">
+            <div class="input-div">
+                <label>Search by project name:</label>
+                <div class="actual-input">
+                    <input type="text" name="SearchString">
+                </div>
+                <span class="error"></span>
+            </div>
+            <div class="input-div">
+                <label>Skill type: </label>
+                <div class="actual-input">
+                    @Html.DropDownList("Skills", "All")
+                </div>
+                <span class="error"></span>
+            </div>
+            <div class="input-div">
+                <label>Search by date:</label>
+                <div class="actual-input">
+                    <input input type ="date" name=" datesearch">
+                </div>
+                <span class="error"></span>
+            </div>
+            <div class="inputs-button">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </div>
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PostDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Techneeded)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Skills)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TimeFrame)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DueDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.contactEmail)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProjectTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PostDate)
-                </td>
-                <td>
+<div class="client-work-card-container">
+    @foreach (var item in Model)
+    {
+        <div class="client-work-card-div">
+            <div class="client-work-card-section-1">
+                <div class="project-name">@Html.DisplayFor(modelItem => item.ProjectTitle)</div>
+                <div class="project-name-subheading">Posted:  @Html.DisplayFor(modelItem => item.PostDate) | Deadline: @Html.DisplayFor(modelItem => item.DueDate)</div>
+                <div class="description">
                     @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Techneeded)
-                </td>
-                <td>
+                </div>
+                <div class="skills">
                     @Html.DisplayFor(modelItem => item.Skills)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TimeFrame)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DueDate)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID" asp-route-projecttitle="@item.ProjectTitle">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                </div>
+            </div>
+
+            <div class="client-work-card-section-2">
+                <div class="client-work-card-section-2-top">$ @Html.DisplayFor(modelItem => item.Price)</div>
+                <div class="client-work-card-section-2-bottom">
+
+                    <a asp-action="Edit" asp-route-id="@item.ID" asp-route-projecttitle="@item.ProjectTitle">
+                        <div class="client-work-card-section-2-bottom-button">
+                            <button>Edit</button>
+                        </div>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.ID">
+                        <div class="client-work-card-section-2-bottom-button">
+                            <button>Details</button>
+                        </div>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.ID">
+                        <div class="client-work-card-section-2-bottom-button">
+                            <button>Delete</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

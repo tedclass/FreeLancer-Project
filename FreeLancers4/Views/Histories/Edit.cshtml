@@ -2,51 +2,61 @@
 
 @{
     ViewData["Title"] = "Edit";
+    ViewData["name"] = "history-edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<div class="inputs-container-holder">
+    <div class="inputs-container">
+        <div class="inputs-title">@ViewBag.Title</div>
+        <div class="inputs-subtitle">Edit Work</div>
 
-<h4>History</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
-            <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
+            <div class="input-div">
+                <label asp-for="UserName"></label>
+                <div class="actual-input">
+                    <input asp-for="UserName" placeholder="Enter project title">
+                </div>
+                <span asp-validation-for="UserName" class="error"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Proffesion" class="control-label"></label>
-                <input asp-for="Proffesion" class="form-control" />
-                <span asp-validation-for="Proffesion" class="text-danger"></span>
+            <div class="input-div">
+                <label asp-for="Proffesion"></label>
+                <div class="actual-input">
+                    <input asp-for="Proffesion" placeholder="Enter post date">
+                </div>
+                <span asp-validation-for="Proffesion" class="error"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Project" class="control-label"></label>
-                <input asp-for="Project" class="form-control" />
-                <span asp-validation-for="Project" class="text-danger"></span>
+            <div class="input-div">
+                <label asp-for="Project"></label>
+                <div class="actual-input">
+                    <input asp-for="Project" placeholder="Enter description">
+                </div>
+                <span asp-validation-for="Project" class="error"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Rating" class="control-label"></label>
-                <input asp-for="Rating" class="form-control" />
-                <span asp-validation-for="Rating" class="text-danger"></span>
+            <div class="input-div">
+                <label asp-for="Rating"></label>
+                <div class="actual-input">
+                    <input asp-for="Rating" placeholder="Enter tech needed">
+                </div>
+                <span asp-validation-for="Rating" class="error"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="completeDate" class="control-label"></label>
-                <input asp-for="completeDate" class="form-control" />
-                <span asp-validation-for="completeDate" class="text-danger"></span>
+            <div class="input-div">
+                <label asp-for="completeDate"></label>
+                <div class="actual-input">
+                    <input asp-for="completeDate" placeholder="Enter skills">
+                </div>
+                <span asp-validation-for="completeDate" class="error"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="inputs-button">
+                <button type="submit">Save</button>
             </div>
         </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+        <a asp-action="Index">
+            <div class="forgot-password">Back to List</div>
+        </a>
+
+    </div>
 </div>
 

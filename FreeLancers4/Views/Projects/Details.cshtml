@@ -2,73 +2,39 @@
 
 @{
     ViewData["Title"] = "Details";
+    ViewData["name"] = "project-edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<div class="general-details-container">
+    <div class="general-details-header">Details</div>
+    <div class="general-details-subheading">View details below</div>
+    <div class="general-details-content-div">
 
-<div>
-    <h4>Work</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ProjectTitle)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ProjectTitle)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PostDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PostDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Techneeded)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Techneeded)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Skills)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Skills)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimeFrame)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimeFrame)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DueDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DueDate)
-        </dd>
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.contactEmail)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.contactEmail)
-        </dd>
-    </dl>
+        <div class="general-details-content">
+            <div class="general-details-content-left">Title</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.ProjectTitle)</div>
+        </div>
+
+        <div class="general-details-content">
+            <div class="general-details-content-left">Posted Date</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.PostDate)</div>
+        </div>
+
+        <div class="general-details-content">
+            <div class="general-details-content-left">Description</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.Description)</div>
+        </div>
+
+    </div>
+
+    <div class="client-work-card-section-2-bottom-button">
+        <a asp-action="Edit" asp-route-id="@Model.ID"><button>Edit</button></a>
+    </div>
+    <a asp-action="Index">
+        <div class="forgot-password">
+            Back to List
+        </div>
+    </a>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
