@@ -10,6 +10,7 @@
     <div class="inputs-container">
         <div class="inputs-title">@ViewBag.Title</div>
         <div class="inputs-subtitle">Use a local account to log in</div>
+        <div asp-validation-summary="All" class="error"></div>
 
         <form id="account" method="post">
             <div class="input-div">
@@ -32,7 +33,7 @@
             </div>
 
             <div class="inputs-button">
-               <button type="submit">Log In</button>
+                <button type="submit">Log In</button>
             </div>
         </form>
 

@@ -86,7 +86,7 @@ namespace FreeLancers4.Areas.Identity.Pages.Account
                     _logger.LogInformation("User logged in.");
                     //return LocalRedirect(returnUrl);
                     //if (User.IsInRole == 1)
-                    return RedirectToAction("AboutUs", "Home");
+                    return RedirectToAction("Index", "Projects");
                     //else
                 }
                 if (result.RequiresTwoFactor)

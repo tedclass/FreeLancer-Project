@@ -62,7 +62,7 @@ a {
 .gradient-container {
     width: 100%;
     height: 100vh;
-    background: linear-gradient(#1d262e, #0C1014);
+    background: linear-gradient(#33414d, #0C1014);
 }
 
 .body-container {
@@ -85,12 +85,17 @@ a {
             font-size: .85rem;
         }
 
-.nav-actual-list {
-    padding: .4em 1.5em;
-    border-radius: 10px;
-    cursor: pointer;
-    color: white;
-}
+            .nav-list-container ul li button {
+                background: transparent;
+                border: none;
+            }
+
+            .nav-actual-list {
+                padding: .4em 1.5em;
+                border-radius: 10px;
+                cursor: pointer;
+                color: white;
+            }
 
     .nav-actual-list:hover {
         background: #FA5426;
@@ -151,6 +156,10 @@ a {
     background: #0C1014;
 }
 
+#nav_bar_div_home {
+    background: transparent;
+}
+
 .inputs-container {
     box-sizing: border-box;
     width: 90%;
@@ -191,7 +200,8 @@ a {
     width: 100%;
 }
 
-    .actual-input input {
+    .actual-input input,
+    .actual-input select {
         box-sizing: border-box;
         width: 100%;
         border: solid #0c101459 1px;
@@ -200,7 +210,8 @@ a {
         margin-top: .3em;
     }
 
-        .actual-input input:hover {
+        .actual-input input:hover,
+        .actual-input select:hover {
             border-color: #f8653c62;
         }
 
@@ -250,6 +261,18 @@ a {
     .forgot-password:hover,
     .register-new-user:hover {
         color: #0C1014;
+    }
+
+.work-buttons {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .work-buttons .inputs-button {
+        margin-top: 1em;
+        padding: 0;
     }
 
 
@@ -470,6 +493,8 @@ a {
     color: #FA5426;
 }
 
+@import url('file:///D:\temp\Jobs\A\Asp.Net\UI\Css\main.css');
+
 .manage-account-header-subtitle {
     color: #0c1014;
     margin-top: .5em;
@@ -477,17 +502,18 @@ a {
 
 .manage-account-left {
     box-sizing: border-box;
-    width: 25%;
+    width: 30%;
     background: white;
     box-shadow: 2px 2px 3px 0px rgba(12, 16, 20, 0.18);
     padding: .5em;
     margin-top: 1em;
     border-radius: 5px;
+    margin-right: 1em;
 }
 
 .manage-account-right {
     margin: 0;
-    width: 75%;
+    width: 70%;
 }
 
 .manage-account-left-button {
@@ -531,18 +557,32 @@ a {
         width: 60%;
         margin-left: 2em;
     }
+
+    .work-buttons {
+        width: 90%;
+        margin: auto;
+    }
+
+        .work-buttons .inputs-button {
+            padding: 0;
+        }
 }
 
 @media screen and (min-width: 1024px) {
     .inputs-container-holder {
         box-sizing: border-box;
-        padding-left: 2em;
+        padding-left: 1em;
         width: 100%;
         display: flex;
     }
 
     .inputs-container {
         width: 45%;
+        margin-left: 0;
+    }
+
+    .inputs-manage-container {
+        width: 100%;
     }
 
     .working-image {
@@ -635,4 +675,16 @@ a {
         box-sizing: border-box;
         width: 60%;
     }
+
+    .work-buttons {
+        box-sizing: border-box;
+        width: 45%;
+        margin: 0;
+        padding-left: 1em;
+        margin-top: 1em;
+    }
+
+        .work-buttons .inputs-button {
+            margin: 0;
+        }
 }

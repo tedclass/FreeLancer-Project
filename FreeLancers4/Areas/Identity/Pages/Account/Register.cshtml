@@ -9,6 +9,7 @@
     <div class="inputs-container">
         <div class="inputs-title">@ViewBag.Title</div>
         <div class="inputs-subtitle">Create a new account</div>
+        <div asp-validation-summary="All" class="error"></div>
 
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <div class="input-div">
