@@ -20,6 +20,13 @@
                 <span asp-validation-for="Input.Email" class="error"></span>
             </div>
             <div class="input-div">
+                <label asp-for="Input.Role"></label>
+                <div class="actual-input">
+                    <select asp-for="Input.Role" asp-items="Model.RoleSelectList"></select>
+                </div>
+                <span asp-validation-for="Input.Role" class="error"></span>
+            </div>
+            <div class="input-div">
                 <label asp-for="Input.Password"></label>
                 <div class="actual-input">
                     <input asp-for="Input.Password" placeholder="Enter your Password">

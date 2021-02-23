@@ -12,17 +12,17 @@
 
         <div class="general-details-content">
             <div class="general-details-content-left">Title</div>
-            <div class="general-details-content-right">@Html.DisplayFor(model => model.UserName)</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.Project.Assigned)</div>
         </div>
 
         <div class="general-details-content">
             <div class="general-details-content-left">Posted Date</div>
-            <div class="general-details-content-right">@Html.DisplayFor(model => model.completeDate)</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.Project.PostDate)</div>
         </div>
 
         <div class="general-details-content">
             <div class="general-details-content-left">Description</div>
-            <div class="general-details-content-right">@Html.DisplayFor(model => model.Project)</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.Project.Description)</div>
         </div>
 
     </div>

@@ -47,6 +47,27 @@ a {
     justify-content: space-between;
 }
 
+.actual-logo {
+    height: 2.3em;
+    padding-top: .8em;
+    padding-left: 1em;
+}
+
+.actual-logo img {
+    height: 100%;
+}
+
+.welcome-home-actual-image {
+    height: 7em;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-home-actual-image img {
+    height: 100%;
+}
+
 
 /* END OF MAIN CSS */
 
@@ -67,7 +88,7 @@ a {
 
 .body-container {
     width: 100%;
-    height: 90vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -77,29 +98,26 @@ a {
     margin-right: 1em;
 }
 
-    .nav-list-container ul {
-        display: flex;
-    }
+.nav-list-container ul {
+    display: flex;
+}
 
-        .nav-list-container ul li {
-            font-size: .85rem;
-        }
+.nav-list-container ul li {
+    font-size: .85rem;
+}
 
-            .nav-list-container ul li button {
-                background: transparent;
-                border: none;
-            }
+.nav-actual-list {
+    padding: .4em 1.5em;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    background: none;
+}
 
-            .nav-actual-list {
-                padding: .4em 1.5em;
-                border-radius: 10px;
-                cursor: pointer;
-                color: white;
-            }
-
-    .nav-actual-list:hover {
-        background: #FA5426;
-    }
+.nav-actual-list:hover {
+    background: #FA5426;
+}
 
 .body-div {
     width: 100%;
@@ -109,7 +127,7 @@ a {
     text-align: center;
     font-family: Montserrat_Bold;
     font-size: 3rem;
-    color: #FA5426;
+    color: #FFD700;
 }
 
 .welcome-message {
@@ -128,17 +146,17 @@ a {
     justify-content: center;
 }
 
-    .signin-button button {
-        background: #FA5426;
-        border: none;
-        padding: .5em 2em;
-        border-radius: 10px;
-        color: white;
-    }
+.signin-button button {
+    background: #FA5426;
+    border: none;
+    padding: .5em 2em;
+    border-radius: 10px;
+    color: white;
+}
 
-        .signin-button button:hover {
-            background: #f8653c;
-        }
+.signin-button button:hover {
+    background: #f8653c;
+}
 
 
 /* END OF HOMEPAGE */
@@ -200,34 +218,34 @@ a {
     width: 100%;
 }
 
-    .actual-input input,
-    .actual-input select {
-        box-sizing: border-box;
-        width: 100%;
-        border: solid #0c101459 1px;
-        border-radius: 5px;
-        padding: .5em 1em;
-        margin-top: .3em;
-    }
+.actual-input input,
+.actual-input select {
+    box-sizing: border-box;
+    width: 100%;
+    border: solid #0c101459 1px;
+    border-radius: 5px;
+    padding: .5em 1em;
+    margin-top: .3em;
+}
 
-        .actual-input input:hover,
-        .actual-input select:hover {
-            border-color: #f8653c62;
-        }
+.actual-input input:hover,
+.actual-input select:hover {
+    border-color: #f8653c62;
+}
 
 .remember-me-container {
     font-size: .85rem;
     margin-top: 1em;
 }
 
-    .remember-me-container label {
-        font-size: .8rem;
-    }
+.remember-me-container label {
+    font-size: .8rem;
+}
 
-        .remember-me-container label:hover {
-            color: #f8653c;
-            cursor: pointer;
-        }
+.remember-me-container label:hover {
+    color: #f8653c;
+    cursor: pointer;
+}
 
 .inputs-button {
     display: flex;
@@ -235,17 +253,17 @@ a {
     margin-top: 2em;
 }
 
-    .inputs-button button {
-        background: #FA5426;
-        border: none;
-        padding: .7em 2em;
-        border-radius: 5px;
-        color: white;
-    }
+.inputs-button button {
+    background: #FA5426;
+    border: none;
+    padding: .7em 2em;
+    border-radius: 5px;
+    color: white;
+}
 
-        .inputs-button button:hover {
-            background: #f8653c;
-        }
+.inputs-button button:hover {
+    background: #f8653c;
+}
 
 .forgot-password,
 .register-new-user {
@@ -258,10 +276,10 @@ a {
     margin-top: .5em;
 }
 
-    .forgot-password:hover,
-    .register-new-user:hover {
-        color: #0C1014;
-    }
+.forgot-password:hover,
+.register-new-user:hover {
+    color: #0C1014;
+}
 
 .work-buttons {
     width: 90%;
@@ -270,10 +288,10 @@ a {
     justify-content: space-between;
 }
 
-    .work-buttons .inputs-button {
-        margin-top: 1em;
-        padding: 0;
-    }
+.work-buttons .inputs-button {
+    margin-top: 1em;
+    padding: 0;
+}
 
 
 /* END OF LOGIN */
@@ -346,9 +364,9 @@ a {
     margin-top: 1em;
 }
 
-    .client-work-card-section-2-bottom-button button:hover {
-        background: #f8653c;
-    }
+.client-work-card-section-2-bottom-button button:hover {
+    background: #f8653c;
+}
 
 
 /* END OF ALL LISTINGS */
@@ -493,8 +511,6 @@ a {
     color: #FA5426;
 }
 
-@import url('file:///D:\temp\Jobs\A\Asp.Net\UI\Css\main.css');
-
 .manage-account-header-subtitle {
     color: #0c1014;
     margin-top: .5em;
@@ -502,41 +518,52 @@ a {
 
 .manage-account-left {
     box-sizing: border-box;
-    width: 30%;
+    width: 25%;
     background: white;
     box-shadow: 2px 2px 3px 0px rgba(12, 16, 20, 0.18);
     padding: .5em;
     margin-top: 1em;
     border-radius: 5px;
-    margin-right: 1em;
 }
 
 .manage-account-right {
     margin: 0;
-    width: 70%;
+    width: 75%;
 }
 
 .manage-account-left-button {
     width: 100%;
 }
 
-    .manage-account-left-button button {
-        width: 100%;
-        color: #0C1014;
-        border-radius: 5px;
-        border: none;
-        margin-top: .5em;
-        padding: 1em 0;
-        background: white;
-    }
+.manage-account-left-button button {
+    width: 100%;
+    color: #0C1014;
+    border-radius: 5px;
+    border: none;
+    margin-top: .5em;
+    padding: 1em 0;
+    background: white;
+}
 
-        .manage-account-left-button button:hover {
-            color: white;
-            background: #FA5426;
-        }
+.manage-account-left-button button:hover {
+    color: white;
+    background: #FA5426;
+}
 
 .working-image {
     display: none;
+}
+
+.blue button {
+    background: #add8e6;
+}
+
+.green button {
+    background: #90ee90;
+}
+
+.ffd button {
+    background: #FFD700;
 }
 
 
@@ -552,20 +579,17 @@ a {
     .client-work-card-section-2-bottom {
         width: 40%;
     }
-
     .general-details-container {
         width: 60%;
         margin-left: 2em;
     }
-
     .work-buttons {
         width: 90%;
         margin: auto;
     }
-
-        .work-buttons .inputs-button {
-            padding: 0;
-        }
+    .work-buttons .inputs-button {
+        padding: 0;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -575,107 +599,81 @@ a {
         width: 100%;
         display: flex;
     }
-
     .inputs-container {
         width: 45%;
         margin-left: 0;
     }
-
-    .inputs-manage-container {
-        width: 100%;
-    }
-
     .working-image {
         display: block;
         width: 55%;
     }
-
     .working-image-div {
         width: 80%;
         margin: auto;
     }
-
-        .working-image-div img {
-            width: 100%;
-        }
-
+    .working-image-div img {
+        width: 100%;
+    }
     .client-work-card-section-2-bottom {
         display: block;
     }
-
     .client-work-card-section-2 {
         width: 20%;
     }
-
     .client-work-card-section-2-bottom {
         width: 100%;
     }
-
     .client-work-card-div {
         width: 70%;
         margin-left: 0;
         margin-left: 2em;
     }
-
     .client-work-card-section-2-bottom-button {
         width: 100%;
         display: flex;
         justify-content: flex-start;
     }
-
     .client-work-card-section-1 {
         width: 80%;
     }
-
     .client-work-card-section-2-top {
         margin-top: 0;
     }
-
     .client-work-card-section-2-bottom-button button {
         margin-top: .5em;
         width: 100%;
     }
-
     .client-work-card-div {
         display: flex;
     }
-
     .description-pages-left-section {
         width: 50%;
         margin-left: 0;
     }
-
     .general-details-container {
         width: 50%;
         margin-left: 2em;
     }
-
     .general-details-content-left {
         width: 25%;
     }
-
     .general-details-content-right {
         width: 75%;
     }
-
     .manage-account-left {
         padding: 1em;
     }
-
     .manage-account-container {
         padding: 0 1em;
     }
-
     .manage-account-section {
         width: 60%;
         display: flex;
     }
-
     .manage-account-header {
         box-sizing: border-box;
         width: 60%;
     }
-
     .work-buttons {
         box-sizing: border-box;
         width: 45%;
@@ -683,8 +681,7 @@ a {
         padding-left: 1em;
         margin-top: 1em;
     }
-
-        .work-buttons .inputs-button {
-            margin: 0;
-        }
+    .work-buttons .inputs-button {
+        margin: 0;
+    }
 }

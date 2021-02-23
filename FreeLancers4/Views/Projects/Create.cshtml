@@ -11,8 +11,9 @@
     <div class="inputs-container">
         <div class="inputs-title">@ViewBag.Title</div>
         <div class="inputs-subtitle">Create project</div>
+        <div asp-validation-summary="All" class="error"></div>
 
-        <form asp-action="Edit">
+        <form asp-action="Create">
             <input type="hidden" asp-for="ID" />
             <div class="input-div">
                 <label asp-for="ProjectTitle"></label>
@@ -22,25 +23,11 @@
                 <span asp-validation-for="ProjectTitle" class="error"></span>
             </div>
             <div class="input-div">
-                <label asp-for="PostDate"></label>
-                <div class="actual-input">
-                    <input asp-for="PostDate" placeholder="Enter post date">
-                </div>
-                <span asp-validation-for="PostDate" class="error"></span>
-            </div>
-            <div class="input-div">
                 <label asp-for="Description"></label>
                 <div class="actual-input">
                     <input asp-for="Description" placeholder="Enter description">
                 </div>
                 <span asp-validation-for="Description" class="error"></span>
-            </div>
-            <div class="input-div">
-                <label asp-for="Techneeded"></label>
-                <div class="actual-input">
-                    <input asp-for="Techneeded" placeholder="Enter tech needed">
-                </div>
-                <span asp-validation-for="Techneeded" class="error"></span>
             </div>
             <div class="input-div">
                 <label asp-for="Skills"></label>
@@ -57,13 +44,6 @@
                 <span asp-validation-for="Price" class="error"></span>
             </div>
             <div class="input-div">
-                <label asp-for="TimeFrame"></label>
-                <div class="actual-input">
-                    <input asp-for="TimeFrame" placeholder="Enter time frame">
-                </div>
-                <span asp-validation-for="TimeFrame" class="error"></span>
-            </div>
-            <div class="input-div">
                 <label asp-for="DueDate"></label>
                 <div class="actual-input">
                     <input asp-for="DueDate" placeholder="Enter due date">
@@ -71,11 +51,11 @@
                 <span asp-validation-for="DueDate" class="error"></span>
             </div>
             <div class="input-div">
-                <label asp-for="contactEmail"></label>
+                <label asp-for="ContactEmail"></label>
                 <div class="actual-input">
-                    <input asp-for="contactEmail" placeholder="Enter contact email">
+                    <input asp-for="ContactEmail" placeholder="Enter contact email">
                 </div>
-                <span asp-validation-for="contactEmail" class="error"></span>
+                <span asp-validation-for="ContactEmail" class="error"></span>
             </div>
             <div class="inputs-button">
                 <button type="submit">Save</button>

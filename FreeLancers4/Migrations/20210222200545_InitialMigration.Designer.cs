@@ -4,14 +4,16 @@ using FreeLancers4.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FreeLancers4.Migrations
 {
     [DbContext(typeof(FreeLancers4Context))]
-    partial class FreeLancers4ContextModelSnapshot : ModelSnapshot
+    [Migration("20210222200545_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,7 +131,7 @@ namespace FreeLancers4.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AssignedTo")
+                    b.Property<string>("AssignedId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CompleteDate")
@@ -147,7 +149,8 @@ namespace FreeLancers4.Migrations
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("OwnedBy")
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("PostDate")
@@ -169,9 +172,9 @@ namespace FreeLancers4.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("AssignedTo");
+                    b.HasIndex("AssignedId");
 
-                    b.HasIndex("OwnedBy");
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Work");
                 });
@@ -324,11 +327,13 @@ namespace FreeLancers4.Migrations
                 {
                     b.HasOne("FreeLancers4.Areas.Identity.Data.FreeLancers4User", "Assigned")
                         .WithMany()
-                        .HasForeignKey("AssignedTo");
+                        .HasForeignKey("AssignedId");
 
                     b.HasOne("FreeLancers4.Areas.Identity.Data.FreeLancers4User", "Owner")
                         .WithMany()
-                        .HasForeignKey("OwnedBy");
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

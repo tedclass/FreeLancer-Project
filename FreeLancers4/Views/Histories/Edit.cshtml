@@ -14,42 +14,42 @@
         <form asp-action="Edit">
             <input type="hidden" asp-for="ID" />
             <div class="input-div">
-                <label asp-for="UserName"></label>
+                <label asp-for="Project.ProjectTitle"></label>
                 <div class="actual-input">
-                    <input asp-for="UserName" placeholder="Enter project title">
+                    <input readonly asp-for="Project.ProjectTitle" placeholder="Project title">
                 </div>
-                <span asp-validation-for="UserName" class="error"></span>
+                <span asp-validation-for="Project.ProjectTitle" class="error"></span>
             </div>
             <div class="input-div">
-                <label asp-for="Proffesion"></label>
+                <label asp-for="Project.PostDate"></label>
                 <div class="actual-input">
-                    <input asp-for="Proffesion" placeholder="Enter post date">
+                    <input readonly asp-for="Project.PostDate" placeholder="Project post date">
                 </div>
-                <span asp-validation-for="Proffesion" class="error"></span>
+                <span asp-validation-for="Project.PostDate" class="error"></span>
             </div>
             <div class="input-div">
-                <label asp-for="Project"></label>
+                <label asp-for="Project.Description"></label>
                 <div class="actual-input">
-                    <input asp-for="Project" placeholder="Enter description">
+                    <input readonly asp-for="Project.Description" placeholder="Project description">
                 </div>
-                <span asp-validation-for="Project" class="error"></span>
+                <span asp-validation-for="Project.Description" class="error"></span>
             </div>
             <div class="input-div">
                 <label asp-for="Rating"></label>
                 <div class="actual-input">
-                    <input asp-for="Rating" placeholder="Enter tech needed">
+                    <input asp-for="Rating" placeholder="Enter rating">
                 </div>
                 <span asp-validation-for="Rating" class="error"></span>
             </div>
             <div class="input-div">
-                <label asp-for="completeDate"></label>
+                <label asp-for="Comments"></label>
                 <div class="actual-input">
-                    <input asp-for="completeDate" placeholder="Enter skills">
+                    <input asp-for="Comments" placeholder="Add any comments about the work done">
                 </div>
-                <span asp-validation-for="completeDate" class="error"></span>
+                <span asp-validation-for="Comments" class="error"></span>
             </div>
             <div class="inputs-button">
-                <button type="submit">Save</button>
+                <button type="submit">Mark as complete</button>
             </div>
         </form>
 

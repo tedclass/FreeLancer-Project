@@ -22,121 +22,47 @@ namespace FreeLancers4.Models
                     return;
                     //DB has been seeded
                 }
-                if(!context.Work.Any())
+
+                /*
+                  if(!context.Work.Any())
                 {
                     context.Work.AddRange(
-                   new Work
-                   {
-                       ProjectTitle = "Ted Birthday Website",
-                       Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
-                       PostDate = DateTime.Parse("2019-3-24"),
-                       Price = 45M,//the m makes it a double
-                        DueDate = DateTime.Parse("2020-4-22"),
-                       Skills = "HTML, CSS, PHP, SQL",
-                       Techneeded = "I dont know",
-                       contactEmail = "@"
-                   },
-                   new Work
-                   {
-                       ProjectTitle = "We'll change the rest chill",
-                       Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
-                       PostDate = DateTime.Parse("2019-3-24"),
-                       Price = 45M,//the m makes it a double
-                        DueDate = DateTime.Parse("2020-4-22"),
-                       Skills = "HTML, CSS, PHP, SQL",
-                       Techneeded = "I dont know",
-                       contactEmail = "@"
-                   },
-                   new Work
-                   {
-                       ProjectTitle = "I guess you will ",
-                       Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
-                       PostDate = DateTime.Parse("2019-3-24"),
-                       Price = 45M,//the m makes it a double
-                        DueDate = DateTime.Parse("2020-4-22"),
-                       Skills = "HTML, CSS, PHP, SQL",
-                       Techneeded = "I dont know",
-                       contactEmail = "@"
-                   },
-                   new Work
-                   {
-                       ProjectTitle = "Future me, this is Ted from the past",
-                       Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
-                       PostDate = DateTime.Parse("2019-3-24"),
-                       Price = 45M,//the m makes it a double
-                        DueDate = DateTime.Parse("2020-4-22"),
-                       Skills = "HTML, CSS, PHP, SQL",
-                       Techneeded = "I dont know",
-                       contactEmail = "@"
-                   },
-                   new Work
-                   {
-                       ProjectTitle = "With a very important message",
-                       Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
-                       PostDate = DateTime.Parse("2019-3-24"),
-                       Price = 45M,//the m makes it a double
-                        DueDate = DateTime.Parse("2020-4-22"),
-                       Skills = "HTML, CSS, PHP, SQL",
-                       Techneeded = "I dont know",
-                       contactEmail = "@"
-                   },
-                   new Work
-                   {
-                       ProjectTitle = "The emperor is in danger, my research has",
-                       Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
-                       PostDate = DateTime.Parse("2019-3-24"),
-                       Price = 45M,//the m makes it a double
-                        DueDate = DateTime.Parse("2020-4-22"),
-                       Skills = "HTML, CSS, PHP, SQL",
-                       Techneeded = "I dont know",
-                       contactEmail = "@"
-                   },
-                   new Work
-                   {
-                       ProjectTitle = "Led to the uncovering of a military coup being planned",
-                       Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
-                       PostDate = DateTime.Parse("2019-3-24"),
-                       Price = 45M,//the m makes it a double
-                        DueDate = DateTime.Parse("2020-4-22"),
-                       Skills = "HTML, CSS, PHP, SQL",
-                       Techneeded = "I dont know",
-                       contactEmail = "@"
-                   },
-                   new Work
-                   {
-                       ProjectTitle = "The major catalyst will be social culture destruction and the release of a virus",
-                       Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
-                       PostDate = DateTime.Parse("2019-3-24"),
-                       Price = 45M,//the m makes it a double
-                        DueDate = DateTime.Parse("2020-4-22"),
-                       Skills = "HTML, CSS, PHP, SQL",
-                       Techneeded = "I dont know",
-                       contactEmail = "@"
-                   },
-                   new Work
-                   {
-                       ProjectTitle = "They plan to blame it on our allays to instigate a military mobilization",
-                       Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
-                       PostDate = DateTime.Parse("2019-3-24"),
-                       Price = 45M,//the m makes it a double
-                        DueDate = DateTime.Parse("2020-4-22"),
-                       Skills = "HTML, CSS, PHP, SQL",
-                       Techneeded = "I dont know",
-                       contactEmail = "@"
-                   },
-                   new Work
-                   {
-                       ProjectTitle = "You need to prepare, time is of the essence.Love PastTed",
-                       Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
-                       PostDate = DateTime.Parse("2019-3-24"),
-                       Price = 45M,//the m makes it a double
-                        DueDate = DateTime.Parse("2020-4-22"),
-                       Skills = "HTML, CSS, PHP, SQL",
-                       Techneeded = "I dont know",
-                       contactEmail = "@"
-                   }
+                       new Work
+                       {
+                           ProjectTitle = "Ted Birthday Website",
+                           Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
+                           PostDate = DateTime.Parse("2019-3-24"),
+                           Price = 45M,//the m makes it a double
+                            DueDate = DateTime.Parse("2020-4-22"),
+                           Skills = "HTML, CSS, PHP, SQL",
+                           Techneeded = "I dont know",
+                           ContactEmail = "test1@email.com"
+                       },
+                       new Work
+                       {
+                           ProjectTitle = "We'll change the rest chill",
+                           Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
+                           PostDate = DateTime.Parse("2019-3-24"),
+                           Price = 45M,//the m makes it a double
+                            DueDate = DateTime.Parse("2020-4-22"),
+                           Skills = "HTML, CSS, PHP, SQL",
+                           Techneeded = "I dont know",
+                           ContactEmail = "@"
+                       },
+                       new Work
+                       {
+                           ProjectTitle = "I guess you will ",
+                           Description = "I need a photo album esquie website to celebrate my uncles birthday next year, id like it to be acceabile for everywhere and make it so that i can let people leave comments under the pictures ",
+                           PostDate = DateTime.Parse("2019-3-24"),
+                           Price = 45M,//the m makes it a double
+                            DueDate = DateTime.Parse("2020-4-22"),
+                           Skills = "HTML, CSS, PHP, SQL",
+                           Techneeded = "I dont know",
+                           ContactEmail = "@"
+                       }
                    );//add some table data
                 }
+
                 if(!context.History.Any())
                 {
                     context.History.AddRange(
@@ -147,7 +73,7 @@ namespace FreeLancers4.Models
                             UserName = "Mr Crabs",
                             Proffesion = "Animated/Sculptor",
                             Rating = 5,
-                            completeDate = DateTime.Parse("2019-12-21")
+                            CompleteDate = DateTime.Parse("2019-12-21")
                             
                         },
                         new History
@@ -157,16 +83,17 @@ namespace FreeLancers4.Models
                             UserName = "Mr Mwaang",
                             Proffesion = "Web App Developer",
                             Rating = 5,
-                            completeDate = DateTime.Parse("2021-2-5")
+                            CompleteDate = DateTime.Parse("2021-2-5")
 
                         }
-                        );
+                   );
                 }
+                */
                
                 context.SaveChanges();
-                    
-                    
+      
             }
         }
+
     }
 }

@@ -4,11 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using FreeLancers4.Areas.Identity.Data;
 
 namespace FreeLancers4.Models
 {
     public class Work
     {
+
         [Display(Name = "Project Number")]
         public int ID { get; set; }
 
@@ -18,10 +20,9 @@ namespace FreeLancers4.Models
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$", ErrorMessage = "Must start with a capital letter")]
         public string ProjectTitle { get; set; }
 
-
+        [DataType(DataType.DateTime)]
         [Display(Name = "Posted Date")]
         public DateTime PostDate { get; set; }
-
 
         [Required(ErrorMessage = "Enter a consice project description")]
         [DataType(DataType.Text)]
@@ -30,26 +31,17 @@ namespace FreeLancers4.Models
         public string Description { get; set; }
 
 
-        [Required(ErrorMessage = "Enter the technologies you would prefer")]
-        [DataType(DataType.Text)]
-        [Display(Name = "Technologies Required")]
-        public string Techneeded { get; set; }//technologies to be used for the project
-
-
         [Required(ErrorMessage = "Enter the skills you require")]
         [DataType(DataType.Text)]
         [Display(Name = "Skills Required")]
         public string Skills { get; set; }
 
-
         [Required(ErrorMessage = "What is the cost?")]
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(18,2)")]
         [Range(1,9000, ErrorMessage = "The price cannot be more than 1000 USD!")]
         [Display(Name = "Project Cost")]
         public decimal Price { get; set; }
-        
-
-       
-       public int TimeFrame { get; set; }//How long it might take
         
         [DataType(DataType.DateTime)]
         [Required(ErrorMessage = "When is the project due?")]
@@ -57,9 +49,25 @@ namespace FreeLancers4.Models
         public DateTime DueDate { get; set; }//when is the product needed
         
         [Display(Name ="Contact Email")]
-        [DataType(DataType.EmailAddress)]
+        [EmailAddress]
         [Required(ErrorMessage = "Please add an email you check frequently!")]
-        public string contactEmail { get; set; }
+        public string ContactEmail { get; set; }
+
+        public string OwnedBy { get; set; }
+
+        [ForeignKey("OwnedBy")]
+        public FreeLancers4User Owner { get; set; }
+
+        public string AssignedTo { get; set; }
+
+        [ForeignKey("AssignedTo")]
+        public FreeLancers4User Assigned { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime CompleteDate { get; set; }
+
+        [DataType(DataType.Text)]
+        public string WorkStatus { get; set; }
 
     }
 }

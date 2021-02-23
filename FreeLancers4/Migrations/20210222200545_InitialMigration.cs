@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FreeLancers4.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,7 +39,12 @@ namespace FreeLancers4.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    Proffesion = table.Column<string>(nullable: true),
+                    DOB = table.Column<DateTime>(nullable: false),
+                    Role = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -152,6 +157,62 @@ namespace FreeLancers4.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Work",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProjectTitle = table.Column<string>(nullable: false),
+                    PostDate = table.Column<DateTime>(nullable: false),
+                    Description = table.Column<string>(maxLength: 500, nullable: false),
+                    Skills = table.Column<string>(nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    DueDate = table.Column<DateTime>(nullable: false),
+                    ContactEmail = table.Column<string>(nullable: false),
+                    OwnerId = table.Column<string>(nullable: false),
+                    AssignedId = table.Column<string>(nullable: true),
+                    CompleteDate = table.Column<DateTime>(nullable: false),
+                    WorkStatus = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Work", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Work_AspNetUsers_AssignedId",
+                        column: x => x.AssignedId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Work_AspNetUsers_OwnerId",
+                        column: x => x.OwnerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "History",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Rating = table.Column<int>(nullable: false),
+                    Comments = table.Column<string>(nullable: true),
+                    ProjectID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_History", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_History_Work_ProjectID",
+                        column: x => x.ProjectID,
+                        principalTable: "Work",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -190,6 +251,21 @@ namespace FreeLancers4.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_History_ProjectID",
+                table: "History",
+                column: "ProjectID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Work_AssignedId",
+                table: "Work",
+                column: "AssignedId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Work_OwnerId",
+                table: "Work",
+                column: "OwnerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -210,7 +286,13 @@ namespace FreeLancers4.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "History");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Work");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

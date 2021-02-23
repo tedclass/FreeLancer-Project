@@ -1,26 +1,10 @@
-﻿@inject SignInManager<FreeLancers4User> SignInManager
+﻿<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+
+@inject SignInManager<FreeLancers4User> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
-
-<div class="manage-account-left">
-    <div class="manage-account-left-button">
-        <button>Profile</button>
-    </div>
-    <div class="manage-account-left-button">
-        <button>Email</button>
-    </div>
-    <div class="manage-account-left-button">
-        <button>Password</button>
-    </div>
-    <div class="manage-account-left-button">
-        <button>Two-factor-authentication</button>
-    </div>
-    <div class="manage-account-left-button">
-        <button>Personal Data</button>
-    </div>
-</div>
-
 <ul class="nav nav-pills flex-column">
     <li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
     <li class="nav-item"><a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Email</a></li>

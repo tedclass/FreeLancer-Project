@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FreeLancers4.Areas.Identity.Pages.Account
 {
@@ -37,6 +38,14 @@ namespace FreeLancers4.Areas.Identity.Pages.Account
             _emailSender = emailSender;
         }
 
+        public SelectList RoleSelectList = new SelectList(
+            new List<SelectListItem> 
+            {
+                new SelectListItem{Selected = true, Text = "Select Role", Value = "" },
+                new SelectListItem{Selected = false, Text = "Freelancer", Value = "freelancer" },
+                new SelectListItem{Selected = false, Text = "Client", Value = "client" },
+            }, "Value", "Text", 1);
+
         [BindProperty]
         public InputModel Input { get; set; }
 
@@ -52,6 +61,11 @@ namespace FreeLancers4.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Role")]
+            public string Role { get; set; }
+
+            [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
@@ -61,6 +75,7 @@ namespace FreeLancers4.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -71,11 +86,12 @@ namespace FreeLancers4.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            returnUrl ??= Url.Content("~/");
+
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new FreeLancers4User { UserName = Input.Email, Email = Input.Email };
+                var user = new FreeLancers4User { UserName = Input.Email, Email = Input.Email, Role = Input.Role.ToLower() };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -90,7 +106,7 @@ namespace FreeLancers4.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                        $"Please confirm your account by <a class=\"error\" href='{HtmlEncoder.Default.Encode(callbackUrl)}'>CLICKING HERE</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -102,6 +118,7 @@ namespace FreeLancers4.Areas.Identity.Pages.Account
                         return LocalRedirect(returnUrl);
                     }
                 }
+
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
@@ -111,5 +128,6 @@ namespace FreeLancers4.Areas.Identity.Pages.Account
             // If we got this far, something failed, redisplay form
             return Page();
         }
+
     }
 }
